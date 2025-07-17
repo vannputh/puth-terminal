@@ -5,12 +5,17 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 
 interface GlobeProps {
+  isOpen: boolean;
   onClose: () => void;
 }
 
-const Globe: React.FC<GlobeProps> = ({ onClose }) => {
+const Globe: React.FC<GlobeProps> = ({ isOpen, onClose }) => {
   return (
-    <div className="fixed inset-0 z-10 bg-black bg-opacity-70 flex items-center justify-center">
+    <div
+      className={`fixed inset-0 z-10 bg-black bg-opacity-70 flex items-center justify-center ${
+        isOpen ? "" : "hidden"
+      }`}
+    >
       <div className="w-4/5 h-4/5 bg-gray-900 border-2 border-gray-700 rounded-lg shadow-lg relative">
         <div className="absolute top-0 left-0 right-0 bg-gray-800 p-2 flex items-center justify-between z-20">
           <div className="flex items-center">
@@ -43,4 +48,4 @@ const Globe: React.FC<GlobeProps> = ({ onClose }) => {
   );
 };
 
-export default Globe; 
+export default React.memo(Globe); 
