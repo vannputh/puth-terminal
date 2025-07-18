@@ -1,32 +1,15 @@
 "use client";
 
 import React from "react";
-
-const commands = [
-  "help",
-  "about",
-  "projects",
-  "skills",
-  "experience",
-  "education",
-  "contact",
-  "clear",
-  "launch globe",
-];
+import { portfolioData } from "@/data/portfolio";
 
 const Header = () => {
+  const { name, title } = portfolioData.fastfetch;
+
   return (
-    <div className="w-full text-center p-2 mb-4 border-b-2 border-green-500">
-      <nav className="flex items-center justify-center flex-wrap">
-        {commands.map((cmd, index) => (
-          <React.Fragment key={cmd}>
-            <span className="text-green-400 mx-2 my-1">{cmd}</span>
-            {index < commands.length - 1 && (
-              <span className="text-gray-600 hidden md:inline">|</span>
-            )}
-          </React.Fragment>
-        ))}
-      </nav>
+    <div className="w-full p-4 border-b-2 border-green-500">
+      <h1 className="text-2xl font-bold text-green-400">{name}</h1>
+      <p className="text-gray-400">{title}</p>
     </div>
   );
 };
