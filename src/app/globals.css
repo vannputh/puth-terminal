@@ -49,3 +49,14 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #4a4a4a #1a1a1a;
 }
+
+/* Blinking cursor animation */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+}
