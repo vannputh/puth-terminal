@@ -1,7 +1,8 @@
 export interface Command {
   name: string;
   description: string;
-  isDisplayed?: boolean; // To control visibility in 'help' and header
+  isDisplayed?: boolean;
+  icon?: string;
 }
 
 export const commands: { [key: string]: Command } = {
