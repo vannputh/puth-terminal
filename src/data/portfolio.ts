@@ -1,59 +1,98 @@
 export const portfolioData = {
   about: `
-    <span class="text-green-400">About Me</span><br>
-    My name is Daroh. I'm a passionate full-stack developer with expertise in modern web technologies.<br>
-    I love building interactive and user-friendly applications that make a difference.<br><br>
+    My name is Daroh. I'm a passionate full-stack developer with expertise in technologies.<br><br>
     Type 'skills' to see my technical skills or 'projects' to view my work.
   `,
-  skills: `
-    <span class="text-green-400">Technical Skills</span><br>
-    <span class="text-yellow-400">Languages:</span> JavaScript, TypeScript, Python, Java<br>
-    <span class="text-yellow-400">Frontend:</span> React, Next.js, Vue.js, Tailwind CSS, ShadCN/UI, Framer Motion<br>
-    <span class="text-yellow-400">Backend:</span> Node.js, Express, PHP, Django, Spring Boot<br>
-    <span class="text-yellow-400">Databases & Cloud:</span> PostgreSQL, MongoDB, Redis, Supabase, AWS<br>
-    <span class="text-yellow-400">AI & Mobile:</span> Google Generative AI SDK, Flutter, Dart<br>
-    <span class="text-yellow-400">Data Science & ML:</span> Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter Notebook<br>
-    <span class="text-yellow-400">Tools & Robotics:</span> Git, Docker, CI/CD, Arduino
-  `,
+  skills: [
+    { category: 'Languages', items: 'JavaScript, TypeScript, Python, Java' },
+    { category: 'Frontend', items: 'React, Next.js, Vue.js, Tailwind CSS, ShadCN/UI, Framer Motion' },
+    { category: 'Backend', items: 'Node.js, Express, PHP, Django, Spring Boot' },
+    { category: 'Databases & Cloud', items: 'PostgreSQL, MongoDB, Redis, Supabase, AWS' },
+    { category: 'AI & Mobile', items: 'Google Generative AI SDK, Flutter, Dart' },
+    { category: 'Data Science & ML', items: 'Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter Notebook' },
+    { category: 'Tools & Robotics', items: 'Git, Docker, CI/CD, Arduino' }
+  ],
   experience: `
     <span class="text-green-400">Work Experience</span><br>
-    <span class="text-yellow-400">Software Engineer @ Tech Company</span><br>
-    2022 - Present<br>
-    - Developed scalable web applications<br>
-    - Led frontend architecture decisions<br>
-    - Mentored junior developers<br><br>
-    <span class="text-yellow-400">Full Stack Developer @ Startup</span><br>
-    2020 - 2022<br>
-    - Built MVP from scratch<br>
-    - Implemented CI/CD pipelines<br>
-    - Worked directly with clients
+    <span class="text-yellow-400">Software Engineer Internship @ Kirirom Institute of Technology</span><br>
+    Mar 2024 - Jun 2025<br><br>
+    <span class="text-cyan-400">Autonomous Robot</span> <span class="text-gray-400">(May 2024 - September 2024)</span><br>
+    - Served as the designer for both the autonomous robot hardware and the mobile application to control it<br>
+    &nbsp;&nbsp;-- Designed and engineered robot mechanics with microcontrollers and sensor integration<br>
+    &nbsp;&nbsp;-- Programmed robot logic for autonomous user-following capabilities and movement algorithms<br>
+    &nbsp;&nbsp;-- Developed mobile application using MIT App Inventor for remote robot control<br>
+    &nbsp;&nbsp;-- Implemented Arduino-based embedded systems for seamless hardware-software communication<br>
+    &nbsp;&nbsp;-- Created intuitive user interface for real-time robot monitoring and control<br><br>
+    <span class="text-cyan-400">Vehicle Maintenance App</span> <span class="text-gray-400">(November 2024 - February 2025)</span><br>
+    - Led backend development and infrastructure design for AI-powered predictive vehicle maintenance platform<br>
+    &nbsp;&nbsp;-- Architected and implemented scalable backend services using Flutter and Dart<br>
+    &nbsp;&nbsp;-- Integrated Google Generative AI SDK for predictive maintenance analytics<br>
+    &nbsp;&nbsp;-- Designed database schemas and API endpoints using Supabase for real-time data processing<br>
+    &nbsp;&nbsp;-- Implemented Google APIs integration for vehicle data collection and analysis<br>
+    &nbsp;&nbsp;-- Built robust authentication and user management systems<br>
+    &nbsp;&nbsp;-- Optimized backend performance for handling large-scale vehicle diagnostic data<br><br>
+    <span class="text-cyan-400">Restaurant Operations Platform</span> <span class="text-gray-400">(March 2025 - June 2025)</span><br>
+    - Led the development team and the backend architecture for a comprehensive restaurant management system<br>
+    &nbsp;&nbsp;-- Managed development team coordination and project timeline execution<br>
+    &nbsp;&nbsp;-- Architected scalable backend infrastructure using Next.js and PHP<br>
+    &nbsp;&nbsp;-- Designed and implemented robust RESTful APIs for restaurant operations management<br>
+    &nbsp;&nbsp;-- Integrated MongoDB for optimized database performance and data modeling<br>
+    &nbsp;&nbsp;-- Implemented Google Generative AI SDK for automated restaurant insights and recommendations<br>
+    &nbsp;&nbsp;-- Built responsive frontend components using ShadCN/UI and Tailwind CSS<br>
+    &nbsp;&nbsp;-- Integrated Framer Motion for enhanced user experience and animations<br><br>
+    <span class="text-cyan-400">Recipe AI Drink</span> <span class="text-gray-400">(June 2025 - July 2025)</span><br>
+    - Served as AI Engineer specializing in generative AI integration for personalized drink recipe creation<br>
+    &nbsp;&nbsp;-- Integrated and fine-tuned Google's Generative AI for creative recipe generation algorithms<br>
+    &nbsp;&nbsp;-- Developed intelligent prompt engineering for personalized drink recommendations<br>
+    &nbsp;&nbsp;-- Implemented dynamic web application using Next.js for seamless user interactions<br>
+    &nbsp;&nbsp;-- Designed AI model integration architecture for real-time recipe customization<br>
+    &nbsp;&nbsp;-- Built responsive UI/UX using Tailwind CSS and ShadCN component library<br>
+    &nbsp;&nbsp;-- Implemented Supabase for user preferences storage and recipe history tracking<br>
+    &nbsp;&nbsp;-- Optimized AI response times and accuracy for enhanced user experience<br>
   `,
   education: `
     <span class="text-green-400">Education</span><br>
     <span class="text-yellow-400">Bachelor of Science in Software Engineering</span><br>
-    Kirirom Institute of Technology, 2023 - 2027
+    Kirirom Institute of Technology, Feb 2023 - Feb 2027
   `,
-  projects: `
-    <span class="text-green-400">Featured Projects</span><br>
-    <span class="text-yellow-400">1. Restaurant Operations Platform</span><br>
-    - As project leader, I led the development of the backend architecture for a comprehensive restaurant operations platform. My work involved designing and implementing scalable systems, robust APIs, and optimized database solutions to enhance operational efficiency.<br>
-    - Tech Stack: Next.js, PHP, ShadCN/UI, Tailwind CSS, Framer Motion, MongoDB, Google Gen AI SDK<br><br>
-    <span class="text-yellow-400">2. AI-Powered Vehicle Maintenance App</span><br>
-    - Developed the backend infrastructure for an innovative AI-powered mobile application for predictive vehicle maintenance. I was responsible for building the core logic and services that power the app's AI features and data processing.<br>
-    - Tech Stack: Flutter, Dart, Supabase, Google Gen AI SDK, Google APIs<br><br>
-    <span class="text-yellow-400">3. Recipe AI Drink</span><br>
-    - Served as an AI Engineer, leveraging Google's Generative AI to create a dynamic web application that generates unique and personalized drink recipes. My role focused on integrating the AI model to provide a creative and interactive user experience.<br>
-    - Tech Stack: Next.js, Tailwind CSS, Supabase, ShadCN, Google Gen AI SDK<br><br>
-    <span class="text-yellow-400">4. Rover Robot</span><br>
-    - Engineered an autonomous rover robot capable of following a user. This project involved hands-on work with microcontrollers and sensors, programming the robot's logic and movement capabilities for seamless autonomous operation.<br>
-    - Tech Stack: Arduino, MIT App Inventor<br><br>
-    <span class="text-yellow-400">5. Loan Approval Prediction</span><br>
-    - Developed a machine learning model to predict loan approval outcomes by analyzing applicant data. This project involved data preprocessing, feature engineering, and model evaluation to achieve high accuracy and provide actionable insights for financial decision-making.<br>
-    - Tech Stack: Python, Scikit-learn, Pandas, NumPy, Matplotlib<br><br>
-    <span class="text-yellow-400">6. Cambodia Wildfire Prediction</span><br>
-    - Constructed a predictive model to forecast wildfire occurrences in Cambodia using meteorological and satellite data. My work included data analysis, feature selection, and implementing ML algorithms to support early warning systems and mitigation efforts.<br>
-    - Tech Stack: Python, Scikit-learn, Pandas, NumPy, Jupyter Notebook
-  `,
+  projects: [
+    {
+      title: 'Autonomous Robot',
+      description: 'Designed an autonomous robot capable of following a user. This project involved hands-on work with microcontrollers and sensors, programming the robot\'s logic and movement capabilities for seamless autonomous operation.',
+      stack: 'Arduino, MIT App Inventor',
+      date: 'May 2024 - September 2024'
+    },
+    {
+      title: 'Vehicle Maintenance App',
+      description: 'Developed the backend infrastructure for an innovative AI-powered mobile application for predictive vehicle maintenance. I was responsible for building the core logic and services that power the app\'s AI features and data processing.',
+      stack: 'Flutter, Dart, Supabase, Google Gen AI SDK, Google APIs',
+      date: 'November 2024 - February 2025'
+    },
+    {
+      title: 'Restaurant Operations Platform',
+      description: 'As project leader, I led the development of the backend architecture for a comprehensive restaurant operations platform. My work involved designing and implementing scalable systems, robust APIs, and optimized database solutions to enhance operational efficiency.',
+      stack: 'Next.js, PHP, ShadCN/UI, Tailwind CSS, Framer Motion, MongoDB, Google Gen AI SDK',
+      date: 'March 2025 - June 2025'
+    },
+    {
+      title: 'Recipe AI Drink',
+      description: 'Served as an AI Engineer, leveraging Google\'s Generative AI to create a dynamic web application that generates unique and personalized drink recipes. My role focused on integrating the AI model to provide a creative and interactive user experience.',
+      stack: 'Next.js, Tailwind CSS, Supabase, ShadCN, Google Gen AI SDK',
+      date: 'June 2025 - June 2025'
+    }
+  ],
+  mlProjects: [
+    {
+      title: 'Loan Approval Prediction',
+      description: 'Developed a machine learning model to predict loan approval outcomes by analyzing applicant data. This project involved data preprocessing, feature engineering, and model evaluation to achieve high accuracy and provide actionable insights for financial decision-making.',
+      stack: 'Python, Scikit-learn, Pandas, NumPy, Matplotlib'
+    },
+    {
+      title: 'Cambodia Wildfire Prediction',
+      description: 'Constructed a predictive model to forecast wildfire occurrences in Cambodia using meteorological and satellite data. My work included data analysis, feature selection, and implementing ML algorithms to support early warning systems and mitigation efforts.',
+      stack: 'Python, Scikit-learn, Pandas, NumPy, Jupyter Notebook, Gradio'
+    }
+  ],
   contact: `
     <span class="text-green-400">Contact Information</span><br>
     <span class="text-yellow-400">Email:</span> <a href='mailto:darosouh@gmail.com' class='text-blue-400 hover:underline'>darosouh@gmail.com</a><br>
@@ -61,9 +100,9 @@ export const portfolioData = {
     <span class="text-yellow-400">LinkedIn:</span> <a href='https://www.linkedin.com/in/daroh-sou' class='text-blue-400 hover:underline' target='_blank'>linkedin.com/in/daroh-sou</a><br>
   `,
   fastfetch: {
-    name: "Daroh",
+    name: "daroh",
     title: "Software Engineer",
-    os: "PortfolioOS",
+    os: "terminal",
     shell: "zsh",
     packages: "npm",
     editor: "VS Code",
@@ -72,15 +111,25 @@ export const portfolioData = {
       github: "Sou-Daroh",
       linkedin: "Sou-Daroh",
     },
-    art: `
-<pre class="text-green-400">
-██████╗  █████╗ ██████╗  ██████╗ ██╗  ██╗
-██╔══██╗██╔══██╗██╔══██╗██╔═══██╗██║  ██║
-██║  ██║███████║██████╔╝██║   ██║███████║
-██║  ██║██╔══██║██╔══██╗██║   ██║██╔══██║
-██████╔╝██║  ██║██║  ██║╚██████╔╝██║  ██║
-╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝
-</pre>
+    art: `                                    
+                 #*#                    
+              #%%%%%%%%%%               
+            #%%%%%%%%@@@@%%             
+            %@@%#*+==++*#%%%            
+           %%%+====-====+#%@            
+           %%%++**=--+#**#@%            
+           %@*+*#*+==*****%@            
+           %#+==--=-======#*            
+            +#==--===+--=+*             
+              +==+===+++=+              
+              ++=-=====++               
+               +++=-==+++               
+               +===++===*%              
+         ####+-==-----==+######         
+     *#######*-===----==+#####*####     
+   **##########--------*#####*******    
+  ***###########%*+*#########********   
+  ##*#*####################*******#***  
     `
   }
 }; 
