@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Daroh Sou",
-  description: "Interactive portfolio.",
+  title: "vannputhika terminal",
+  description: "Portfolio of Suon Vannputhika.",
 };
 
 export const viewport: Viewport = {
