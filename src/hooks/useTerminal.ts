@@ -351,7 +351,20 @@ export const useTerminal = () => {
           )
           .join("<br><br>");
         
-        return title + regularProjectsTitle + projectsList + mlProjectsTitle + mlProjectsList;
+        // Personal projects
+        const personalProjectsTitle = `<br><br><span class="text-yellow-400">Personal Projects</span><br>`;
+        const personalProjectsList = portfolioData.personalProjects
+          .map(
+            (p, i) =>
+              `&nbsp;&nbsp;<span class="text-cyan-400">${portfolioData.projects.length + portfolioData.mlProjects.length + i + 1}. ${
+                p.title
+              }</span><br>` +
+              `&nbsp;&nbsp;&nbsp;&nbsp;${p.description}<br>` +
+              `&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">Tech:</span> ${p.stack}`
+          )
+          .join("<br><br>");
+        
+        return title + regularProjectsTitle + projectsList + mlProjectsTitle + mlProjectsList + personalProjectsTitle + personalProjectsList;
       },
       skills: () => {
         const title = `<span class="text-green-400">Technical Skills</span><br>`;

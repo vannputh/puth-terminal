@@ -93,6 +93,14 @@ export const portfolioData = {
       stack: 'Python, Scikit-learn, Pandas, NumPy, Jupyter Notebook, Gradio'
     }
   ],
+  personalProjects: [
+    {
+      title: 'Dteam',
+      description: 'A comprehensive gaming platform inspired by Steam, featuring a modern web interface built with Angular and TypeScript. The platform includes user authentication, game library management, and social features, all powered by a robust Node.js backend with Express.js and MongoDB. Deployed using Docker containers with Nginx for production-ready performance.',
+      stack: 'Angular, TypeScript, Tailwind CSS, Font Awesome, Node.js, Express.js, MongoDB, Mongoose, JWT, Vite, Docker, Nginx',
+      category: 'Full-Stack Gaming Platform'
+    }
+  ],
   contact: `
     <span class="text-green-400">Contact Information</span><br>
     <span class="text-yellow-400">Email:</span> <a href='mailto:darosouh@gmail.com' class='text-blue-400 hover:underline'>darosouh@gmail.com</a><br>
