@@ -5,12 +5,12 @@ export const portfolioData = {
   `,
   skills: [
     { category: 'Languages', items: 'JavaScript, TypeScript, Python, Java' },
-    { category: 'Frontend', items: 'React, Next.js, Vue.js, Tailwind CSS, ShadCN/UI, Framer Motion' },
-    { category: 'Backend', items: 'Node.js, Express, PHP, Django, Spring Boot' },
-    { category: 'Databases & Cloud', items: 'PostgreSQL, MongoDB, Redis, Supabase, AWS' },
+    { category: 'Frontend', items: 'React, Next.js, Angular, Vue.js, Tailwind CSS, ShadCN/UI, Framer Motion, Font Awesome' },
+    { category: 'Backend', items: 'Node.js, Express.js, PHP, Django, Spring Boot, JWT' },
+    { category: 'Databases & Cloud', items: 'PostgreSQL, MongoDB, Mongoose, Redis, Supabase, AWS' },
     { category: 'AI & Mobile', items: 'Google Generative AI SDK, Flutter, Dart' },
-    { category: 'Data Science & ML', items: 'Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter Notebook' },
-    { category: 'Tools & Robotics', items: 'Git, Docker, CI/CD, Arduino' }
+    { category: 'Data Science & ML', items: 'Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter Notebook, Gradio' },
+    { category: 'Tools & DevOps', items: 'Git, Docker, Docker Compose, CI/CD, Vite, Nginx, Arduino' }
   ],
   experience: `
     <span class="text-green-400">Work Experience</span><br>
