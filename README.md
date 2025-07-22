@@ -1,4 +1,4 @@
-# 🖥️ daroh-os
+# 🖥️ Daroh-Terminal
 
 A sleek, terminal-inspired portfolio website that showcases my journey as a full-stack developer through an interactive command-line interface.
 
