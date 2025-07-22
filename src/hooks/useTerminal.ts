@@ -44,12 +44,6 @@ interface UserAgentData {
   platform?: string;
 }
 
-interface PerformanceMemory {
-  totalJSHeapSize?: number;
-  usedJSHeapSize?: number;
-}
-
-// Function to get real device information
 const getDeviceInfo = () => {
   const userAgent = navigator.userAgent;
   
@@ -125,8 +119,8 @@ const getDeviceInfo = () => {
   const colorDepth = `${screen.colorDepth}-bit`;
   const pixelRatio = window.devicePixelRatio || 1;
   
-  let memory = "Available";
-  let memoryUsed = "Available";
+  const memory = "Available";
+  const memoryUsed = "Available";
 
   const cores = navigator.hardwareConcurrency || "Unknown";
   const cpu = cores !== "Unknown" ? `${cores} cores` : "Unknown CPU";
@@ -575,7 +569,7 @@ export const useTerminal = () => {
 
     return () => {
     };
-  }, []);
+  }, [promptLine1, promptLine2]);
 
   useEffect(() => {
     if (terminalRef.current) {
