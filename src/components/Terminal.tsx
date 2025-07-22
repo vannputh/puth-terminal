@@ -43,7 +43,7 @@ type HistoryItem = string | FastfetchData;
 
 const CommandButton = ({ command, onClick }: { command: Command; onClick: (cmd: string) => void }) => (
   <button
-    className="text-green-400 mx-2 my-1 text-xs hover:bg-green-500 hover:text-black cursor-pointer px-1 rounded"
+    className="text-green-400 mx-1 my-1 text-xs md:text-xs lg:text-sm hover:bg-green-500 hover:text-black cursor-pointer px-2 py-1 rounded border border-green-600 md:border-none md:px-1 md:py-0 touch-manipulation"
     onClick={() => onClick(command.name)}
   >
     {command.icon && <span className="mr-1">{command.icon}</span>}
@@ -53,7 +53,7 @@ const CommandButton = ({ command, onClick }: { command: Command; onClick: (cmd: 
 
 const TerminalHeader = ({ executeCommand }: { executeCommand: (cmd: string) => void }) => (
   <div className="bg-black p-2 text-center flex-shrink-0 border-b border-green-800">
-    <div className="mt-2 flex items-center justify-center flex-wrap">
+    <div className="mt-2 flex items-center justify-center flex-wrap gap-1 md:gap-0">
       {commandList.map((cmd, index) => (
         <React.Fragment key={cmd.name}>
           <CommandButton command={cmd} onClick={executeCommand} />
@@ -106,14 +106,14 @@ const HistoryLine = ({ line }: { line: HistoryItem }) => {
         );
 
         return (
-          <div className="flex">
-            <div className="w-1/3 pr-4">
+          <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-1/3 pr-0 md:pr-4 mb-4 md:mb-0">
               <div
-                className="font-mono text-primary whitespace-pre"
+                className="font-mono text-primary whitespace-pre text-xs md:text-sm overflow-x-auto"
                 dangerouslySetInnerHTML={{ __html: fastfetchArt }}
               />
             </div>
-            <div className="w-2/3 flex flex-col space-y-1 text-sm">
+            <div className="w-full md:w-2/3 flex flex-col space-y-1 text-xs md:text-sm">
               <div>
                 <span className="text-green-400 font-bold">
                   {name}@terminal
@@ -142,19 +142,19 @@ const HistoryLine = ({ line }: { line: HistoryItem }) => {
                     icon={<FaEnvelope size={14} className="text-red-400" />}
                     href={`mailto:${contact.email}`}
                     text={contact.email}
-                    className="text-yellow-300 hover:text-yellow-100"
+                    className="text-yellow-300 hover:text-yellow-100 break-all"
                   />
                   <ContactLink
                     icon={<FaGithub size={14}/>}
                     href={`https://github.com/${contact.github}`}
                     text={contact.github}
-                    className="text-white-300 hover:text-green-100"
+                    className="text-white-300 hover:text-green-100 break-all"
                   />
                   <ContactLink
                     icon={<FaLinkedin size={14} className="text-blue-400" />}
                     href={`https://linkedin.com/in/${contact.linkedin}`}
                     text={contact.linkedin}
-                    className="text-blue-300 hover:text-blue-100"
+                    className="text-blue-300 hover:text-blue-100 break-all"
                   />
                 </div>
               </div>
@@ -209,13 +209,13 @@ const TerminalInput = ({
           value={input}
           onChange={onInputChange}
           onKeyDown={onInputKeyDown}
-          className="bg-transparent border-none text-green-400 focus:outline-none caret-transparent"
+          className="bg-transparent border-none text-green-400 focus:outline-none caret-transparent -ml-1"
           autoComplete="off"
           autoFocus
           disabled={isTyping}
-          style={{ width: `${input.length}ch` }}
+          style={{ width: input.length > 0 ? `${input.length}ch` : '0ch' }}
         />
-        <span className="blinking-cursor text-green-500">|</span>
+        <span className="blinking-cursor text-green-500">█</span>
       </div>
     </div>
   );
@@ -246,7 +246,7 @@ const Terminal = () => {
       <TerminalHeader executeCommand={executeCommand} />
       <div
         ref={terminalRef}
-        className="p-4 text-white font-mono flex-grow overflow-y-auto"
+        className="p-2 md:p-4 text-white font-mono flex-grow overflow-y-auto"
         onClick={() => document.getElementById("terminal-input")?.focus()}
       >
         <TerminalHistory history={history} />
