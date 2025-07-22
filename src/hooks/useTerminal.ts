@@ -198,7 +198,7 @@ export const useTerminal = () => {
 
   const allCommandNames = Object.keys(commands);
 
-  const promptLine1 = `<span class="text-green-400">┌─(</span><span class="text-indigo-500 font-bold">daroh@terminal</span><span class="text-green-400">)-[~]</span>`;
+  const promptLine1 = `<span class="text-green-400">┌─(</span><span class="text-indigo-500 font-bold">vannputhika@terminal</span><span class="text-green-400">)-[~]</span>`;
   const promptLine2 = `<span class="text-green-400">└─</span><span class="text-indigo-500">$</span>&nbsp;`;
 
   const commandHandlers: { [key: string]: CommandHandler } = useMemo(
@@ -286,7 +286,7 @@ export const useTerminal = () => {
         return escapeHtml(args.join(" "));
       },
       date: () => new Date().toString(),
-      whoami: () => "daroh@terminal",
+      whoami: () => "vannputhika@terminal",
       clear: () => {
         setHistory([]);
         return "";
