@@ -5,11 +5,43 @@ import dynamic from "next/dynamic";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useTerminal } from "@/hooks/useTerminal";
 import { commandList } from "@/config/commands";
+import { Command } from "@/config/commands";
 import TerminalOutput from "./TerminalOutput";
 
 const Globe = dynamic(() => import("./Globe"));
 
-const CommandButton = ({ command, onClick }: { command: any; onClick: (cmd: string) => void }) => (
+interface FastfetchData {
+  type: "fastfetch";
+  data: {
+    name: string;
+    os: string;
+    kernel: string;
+    uptime: string;
+    shell: string;
+    terminal: string;
+    resolution: string;
+    colorDepth: string;
+    pixelRatio: number;
+    cpu: string;
+    gpu: string;
+    memoryUsed: string;
+    deviceType: string;
+    platform: string;
+    timezone: string;
+    language: string;
+    contact: {
+      email: string;
+      github: string;
+      linkedin: string;
+    };
+    art: string;
+    title: string;
+  };
+}
+
+type HistoryItem = string | FastfetchData;
+
+const CommandButton = ({ command, onClick }: { command: Command; onClick: (cmd: string) => void }) => (
   <button
     className="text-green-400 mx-2 my-1 text-xs hover:bg-green-500 hover:text-black cursor-pointer px-1 rounded"
     onClick={() => onClick(command.name)}
@@ -34,7 +66,7 @@ const TerminalHeader = ({ executeCommand }: { executeCommand: (cmd: string) => v
   </div>
 );
 
-const HistoryLine = ({ line }: { line: any }) => {
+const HistoryLine = ({ line }: { line: HistoryItem }) => {
   if (typeof line === "string") {
     return <TerminalOutput html={line} />;
   }
@@ -43,8 +75,8 @@ const HistoryLine = ({ line }: { line: any }) => {
     switch (line.type) {
       case "fastfetch":
         const { 
-          name, os, kernel, uptime, shell, terminal, resolution, colorDepth, pixelRatio,
-          cpu, gpu, memoryUsed, deviceType, platform, timezone, language, contact, art, title 
+          name, os, kernel, uptime, shell, terminal, resolution,
+          cpu, gpu, memoryUsed, deviceType, platform, contact, art, title 
         } = line.data;
         const fastfetchArt = art.replace(
           'class="text-green-400"',
@@ -101,7 +133,7 @@ const HistoryLine = ({ line }: { line: any }) => {
                 <div><span className="font-bold text-indigo-400">CPU:</span> <span className="text-red-400">{cpu}</span></div>
                 <div><span className="font-bold text-indigo-400">GPU:</span> <span className="text-red-300">{gpu}</span></div>
                 {memoryUsed !== "Unknown" && <div><span className="font-bold text-indigo-400">Memory:</span> <span className="text-red-200">{memoryUsed}</span></div>}
-                <div><span className="font-bold text-indigo-400">Locale:</span> <span className="text-gray-300">{language}</span></div>
+                <div><span className="font-bold text-indigo-400">Locale:</span> <span className="text-gray-300">{line.data.language}</span></div>
               </div>
               <div className="pt-2">
                 <div><span className="font-bold text-indigo-400">Contact:</span></div>
@@ -132,15 +164,12 @@ const HistoryLine = ({ line }: { line: any }) => {
       default:
         return <TerminalOutput html={JSON.stringify(line)} />;
     }
-  } else if (typeof line === 'string' && line.includes("Command not found")) {
-    return <TerminalOutput html={line} />;
   }
-
 
   return null;
 };
 
-const TerminalHistory = ({ history }: { history: any[] }) => (
+const TerminalHistory = ({ history }: { history: HistoryItem[] }) => (
   <div>
     {history.map((line, index) => (
       <div key={index} className="mb-2">
@@ -210,7 +239,7 @@ const Terminal = () => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
-  }, [history, isTyping]);
+  }, [history, isTyping, terminalRef]);
 
   return (
     <div className="w-full h-full bg-black shadow-lg flex flex-col terminal">

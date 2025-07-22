@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🖥️ daroh-os
 
-## Getting Started
+A sleek, terminal-inspired portfolio website that showcases my journey as a full-stack developer through an interactive command-line interface.
 
-First, run the development server:
+## ✨ Features
+
+- **Interactive Terminal**: Navigate through my portfolio using familiar terminal commands
+- **3D Globe Viewer**: Launch an interactive 3D globe with `launch globe`
+- **Real-time Status Bar**: Shows current date, time, and system information
+- **Responsive Design**: Optimized for both desktop and mobile experiences
+- **Multiple Commands**: Explore different sections with intuitive commands
+
+## 🚀 Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `help` | Show all available commands |
+| `fastfetch` | Display a summary of my profile |
+| `about` | Learn about me and my background |
+| `skills` | Explore my technical expertise |
+| `projects` | View my portfolio projects |
+| `experience` | See my work experience and internships |
+| `education` | Check out my educational background |
+| `contact` | Get my contact information |
+| `launch globe` | Launch the interactive 3D globe viewer |
+| `clear` | Clear the terminal screen |
+| `date` | Show current date and time |
+| `whoami` | Display current user information |
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 14, React, TypeScript
+- **Styling**: Tailwind CSS
+- **Font**: Custom monospace fonts (Antonio Bold, LTYPE)
+- **Deployment**: Vercel
+
+## 🏃‍♂️ Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd daroh-os
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+5. **Start exploring!**
+   Type `help` in the terminal to see all available commands
+
+## 💡 Usage
+
+- Type any command and press Enter to execute
+- Use `help` to see all available commands
+- Try `fastfetch` for a quick overview
+- Use `launch globe` to open the 3D globe viewer
+- Type `exit` to return from the globe viewer to the terminal
+
+## 📱 Responsive Design
+
+The terminal interface adapts seamlessly across devices:
+- **Desktop**: Full terminal experience with all features
+- **Mobile**: Touch-friendly interface with virtual keyboard support
+- **Tablet**: Optimized layout for medium screens
+
+## 🔧 Development
 
 ```bash
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Lint the code
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is optimized for deployment on [Vercel](https://vercel.com). Simply connect your repository and deploy!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For other platforms, build the project and serve the `out` directory:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Customization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Commands**: Modify `src/config/commands.ts` to add or remove commands
+- **Portfolio Data**: Update `src/data/portfolio.ts` with your information
+- **Styling**: Customize the theme in `src/app/globals.css`
+- **Components**: Extend functionality by modifying components in `src/components/`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
+This project is open source and available under the [MIT License](LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built with ❤️ by Daroh** | Type `contact` in the terminal to get in touch!

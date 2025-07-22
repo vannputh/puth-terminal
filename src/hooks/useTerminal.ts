@@ -5,7 +5,49 @@ import { commands, commandList } from "@/config/commands";
 import { portfolioData } from "@/data/portfolio";
 import { closest } from "fastest-levenshtein";
 
-type CommandHandler = (args: string[]) => string | Record<string, any>;
+interface FastfetchData {
+  type: "fastfetch";
+  data: {
+    name: string;
+    title: string;
+    os: string;
+    kernel: string;
+    uptime: string;
+    shell: string;
+    terminal: string;
+    resolution: string;
+    colorDepth: string;
+    pixelRatio: number;
+    cpu: string;
+    gpu: string;
+    memory: string;
+    memoryUsed: string;
+    deviceType: string;
+    platform: string;
+    timezone: string;
+    language: string;
+    languages: string;
+    contact: {
+      email: string;
+      github: string;
+      linkedin: string;
+    };
+    art: string;
+  };
+}
+
+type HistoryItem = string | FastfetchData;
+type CommandOutput = string | FastfetchData;
+type CommandHandler = (args: string[]) => CommandOutput;
+
+interface UserAgentData {
+  platform?: string;
+}
+
+interface PerformanceMemory {
+  totalJSHeapSize?: number;
+  usedJSHeapSize?: number;
+}
 
 // Function to get real device information
 const getDeviceInfo = () => {
@@ -16,7 +58,7 @@ const getDeviceInfo = () => {
   
   // Try modern userAgentData API first
   if ('userAgentData' in navigator) {
-    const userAgentData = (navigator as any).userAgentData;
+    const userAgentData = (navigator as { userAgentData?: UserAgentData }).userAgentData;
     if (userAgentData && userAgentData.platform) {
       platform = userAgentData.platform;
     }
@@ -135,8 +177,8 @@ const getDeviceInfo = () => {
   let memory = "Unknown";
   let memoryUsed = "Unknown";
   if ('memory' in performance) {
-    const memInfo = (performance as any).memory;
-    if (memInfo.totalJSHeapSize && memInfo.usedJSHeapSize) {
+    const memInfo = (performance as { memory?: PerformanceMemory }).memory;
+    if (memInfo && memInfo.totalJSHeapSize && memInfo.usedJSHeapSize) {
       const totalMB = Math.round(memInfo.totalJSHeapSize / 1024 / 1024);
       const usedMB = Math.round(memInfo.usedJSHeapSize / 1024 / 1024);
       memory = `${totalMB} MiB`;
@@ -202,7 +244,7 @@ const getDeviceInfo = () => {
         }
       }
     }
-  } catch (e) {
+  } catch {
     gpu = "Unknown GPU";
   }
 
@@ -230,7 +272,7 @@ const getDeviceInfo = () => {
 };
 
 export const useTerminal = () => {
-  const [history, setHistory] = useState<any[]>([]);
+  const [history, setHistory] = useState<HistoryItem[]>([]);
   const [input, setInput] = useState("");
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
@@ -250,7 +292,7 @@ export const useTerminal = () => {
         `Available commands:<br>${commandList
           .map((cmd) => `&nbsp;- ${cmd.name}: ${cmd.description}`)
           .join("<br>")}`,
-      fastfetch: () => {
+      fastfetch: (): FastfetchData => {
         const deviceInfo = getDeviceInfo();
         return {
           type: "fastfetch",
@@ -348,8 +390,8 @@ export const useTerminal = () => {
   );
 
   const processCommand = useCallback(
-    async (command: string, currentHistory: any[]) => {
-      let output: string | Record<string, any> = "";
+    async (command: string, currentHistory: HistoryItem[]) => {
+      let output: CommandOutput = "";
       let commandName = command;
       let args: string[] = [];
 
@@ -421,7 +463,7 @@ export const useTerminal = () => {
         setIsTyping(false);
       }
     },
-    [allCommandNames, commandHandlers, showGlobe]
+    [allCommandNames, commandHandlers]
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
