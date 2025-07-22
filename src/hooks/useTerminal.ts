@@ -442,7 +442,7 @@ export const useTerminal = () => {
         await new Promise((res) => setTimeout(res, 50));
 
         let typedOutput = "";
-        const typingDelay = 1;
+        const typingDelay = 0;
 
         for (let i = 0; i < output.length; i++) {
             // Check for interruption signal
@@ -604,7 +604,7 @@ export const useTerminal = () => {
       await new Promise((res) => setTimeout(res, 50));
 
       let typedOutput = "";
-      const typingDelay = 1;
+      const typingDelay = 0;
 
       for (let i = 0; i < welcomeMessage.length; i++) {
         // Check for interruption signal
