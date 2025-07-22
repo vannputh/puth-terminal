@@ -78,10 +78,11 @@ const HistoryLine = ({ line }: { line: HistoryItem }) => {
           name, os, kernel, uptime, shell, terminal, resolution,
           cpu, gpu, memoryUsed, deviceType, platform, contact, art, title 
         } = line.data;
-        const fastfetchArt = art.replace(
-          'class="text-green-400"',
-          'class="text-primary"'
-        );
+        const fastfetchArt = art
+          .split('\n')
+          .map(line => line.replace(/ /g, '&nbsp;'))
+          .join('<br>')
+          .replace('class="text-green-400"', 'class="text-primary"');
 
         const ContactLink = ({
           icon,
@@ -108,7 +109,9 @@ const HistoryLine = ({ line }: { line: HistoryItem }) => {
         return (
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/3 pr-0 md:pr-4 mb-4 md:mb-0">
-              <TerminalOutput html={fastfetchArt} />
+              <div className="font-mono whitespace-pre">
+                <TerminalOutput html={fastfetchArt} />
+              </div>
             </div>
             <div className="w-full md:w-2/3 flex flex-col space-y-1 text-xs md:text-sm">
               <div>
