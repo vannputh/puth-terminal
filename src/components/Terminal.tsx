@@ -108,10 +108,7 @@ const HistoryLine = ({ line }: { line: HistoryItem }) => {
         return (
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/3 pr-0 md:pr-4 mb-4 md:mb-0">
-              <div
-                className="font-mono text-primary whitespace-pre text-xs md:text-sm overflow-x-auto"
-                dangerouslySetInnerHTML={{ __html: fastfetchArt }}
-              />
+              <TerminalOutput html={fastfetchArt} />
             </div>
             <div className="w-full md:w-2/3 flex flex-col space-y-1 text-xs md:text-sm">
               <div>
