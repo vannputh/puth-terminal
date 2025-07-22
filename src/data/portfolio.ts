@@ -1,122 +1,109 @@
 export const portfolioData = {
   about: `
-    My name is Daroh. I'm a passionate full-stack developer with expertise in technologies.<br><br>
+    My name is Suon Vannputhika. I am a Software Engineering student and developer based in Phnom Penh, Cambodia.<br><br>
     Type 'skills' to see my technical skills or 'projects' to view my work.
   `,
   skills: [
-    { category: 'Languages', items: 'JavaScript, TypeScript, Python, Java' },
-    { category: 'Frontend', items: 'React, Next.js, Angular, Vue.js, Tailwind CSS, ShadCN/UI, Framer Motion, Font Awesome' },
-    { category: 'Backend', items: 'Node.js, Express.js, PHP, Django, Spring Boot, JWT' },
-    { category: 'Databases & Cloud', items: 'PostgreSQL, MongoDB, Mongoose, Redis, Supabase, AWS' },
-    { category: 'AI & Mobile', items: 'Google Generative AI SDK, Flutter, Dart' },
-    { category: 'Data Science & ML', items: 'Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter Notebook, Gradio' },
-    { category: 'Tools & DevOps', items: 'Git, Docker, Docker Compose, CI/CD, Vite, Nginx, Arduino' }
+    { category: 'Languages', items: 'Python, JavaScript, Dart, HTML, CSS, SQL' },
+    { category: 'Frameworks/Tools', items: 'Flutter, React, Next.js, Tailwind CSS, Node.js, Godot, Git, Figma' },
+    { category: 'Soft Skills', items: 'UX/UI Design, Project Leadership, Public Speaking, Agile Development' }
   ],
   experience: `
     <span class="text-green-400">Work Experience</span><br>
-    <span class="text-yellow-400">Software Engineer Internship @ Kirirom Institute of Technology</span><br>
-    Mar 2024 - Jun 2025<br><br>
-    <span class="text-cyan-400">Autonomous Robot</span> <span class="text-gray-400">(May 2024 - September 2024)</span><br>
-    - Served as the designer for both the autonomous robot hardware and the mobile application to control it<br>
-    &nbsp;&nbsp;-- Designed and engineered robot mechanics with microcontrollers and sensor integration<br>
-    &nbsp;&nbsp;-- Programmed robot logic for autonomous user-following capabilities and movement algorithms<br>
-    &nbsp;&nbsp;-- Developed mobile application using MIT App Inventor for remote robot control<br>
-    &nbsp;&nbsp;-- Implemented Arduino-based embedded systems for seamless hardware-software communication<br>
-    &nbsp;&nbsp;-- Created intuitive user interface for real-time robot monitoring and control<br><br>
-    <span class="text-cyan-400">Vehicle Maintenance App</span> <span class="text-gray-400">(November 2024 - February 2025)</span><br>
-    - Led backend development and infrastructure design for AI-powered predictive vehicle maintenance platform<br>
-    &nbsp;&nbsp;-- Architected and implemented scalable backend services using Flutter and Dart<br>
-    &nbsp;&nbsp;-- Integrated Google Generative AI SDK for predictive maintenance analytics<br>
-    &nbsp;&nbsp;-- Designed database schemas and API endpoints using Supabase for real-time data processing<br>
-    &nbsp;&nbsp;-- Implemented Google APIs integration for vehicle data collection and analysis<br>
-    &nbsp;&nbsp;-- Built robust authentication and user management systems<br>
-    &nbsp;&nbsp;-- Optimized backend performance for handling large-scale vehicle diagnostic data<br><br>
-    <span class="text-cyan-400">Restaurant Operations Platform</span> <span class="text-gray-400">(March 2025 - June 2025)</span><br>
-    - Led the development team and the backend architecture for a comprehensive restaurant management system<br>
-    &nbsp;&nbsp;-- Managed development team coordination and project timeline execution<br>
-    &nbsp;&nbsp;-- Architected scalable backend infrastructure using Next.js and PHP<br>
-    &nbsp;&nbsp;-- Designed and implemented robust RESTful APIs for restaurant operations management<br>
-    &nbsp;&nbsp;-- Integrated MongoDB for optimized database performance and data modeling<br>
-    &nbsp;&nbsp;-- Implemented Google Generative AI SDK for automated restaurant insights and recommendations<br>
-    &nbsp;&nbsp;-- Built responsive frontend components using ShadCN/UI and Tailwind CSS<br>
-    &nbsp;&nbsp;-- Integrated Framer Motion for enhanced user experience and animations<br><br>
-    <span class="text-cyan-400">Recipe AI Drink</span> <span class="text-gray-400">(June 2025 - July 2025)</span><br>
-    - Served as AI Engineer specializing in generative AI integration for personalized drink recipe creation<br>
-    &nbsp;&nbsp;-- Integrated and fine-tuned Google's Generative AI for creative recipe generation algorithms<br>
-    &nbsp;&nbsp;-- Developed intelligent prompt engineering for personalized drink recommendations<br>
-    &nbsp;&nbsp;-- Implemented dynamic web application using Next.js for seamless user interactions<br>
-    &nbsp;&nbsp;-- Designed AI model integration architecture for real-time recipe customization<br>
-    &nbsp;&nbsp;-- Built responsive UI/UX using Tailwind CSS and ShadCN component library<br>
-    &nbsp;&nbsp;-- Implemented Supabase for user preferences storage and recipe history tracking<br>
-    &nbsp;&nbsp;-- Optimized AI response times and accuracy for enhanced user experience<br>
+    <span class="text-yellow-400">Product Development Internship @ WALD Limited</span><br>
+    Apr 2025 – Jul 2025<br>
+    – Led the development team for a digital transformation project, creating a web application to modernize the design process for a traditional lacquerware company.<br>
+    – Oversaw the project lifecycle, from initial concept and system architecture to final deployment and feature implementation.<br>
+    – Managed the development timeline, ensuring key milestones for the admin dashboard, AI-powered features, and user-facing components were met.<br><br>
+    <span class="text-yellow-400">Software Engineering Internship @ Kirirom Institute of Technology</span><br>
+    Mar 2024 – Jun 2025<br>
+    <span class="text-cyan-400">Game Designer & Developer</span> (Apr 2025 – Jun 2025)<br>
+    – Designed core gameplay systems including combat loops, progression mechanics, and procedural level generation.<br>
+    – Developed the game using Godot 4, implementing player interactions, enemy behaviors, and item interactions.<br><br>
+    <span class="text-cyan-400">Hospitality App Project</span> (Apr 2024 – Jun 2025)<br>
+    – Led the complete redesign of a legacy hospitality app, analyzing UX pain points and creating high-fidelity mockups.<br>
+    – Rebuilt and refactored the application’s frontend using Flutter, improving performance, usability, and maintainability.<br>
+    – Redesigned core user flows such as room booking, service requests, and payment interactions to be more intuitive.<br><br>
+    <span class="text-cyan-400">Biometric Machine Learning Project</span> (Mar 2024 – Sep 2024)<br>
+    – Managed the data lifecycle by building ETL pipelines with Python to gather, clean, and prepare user metadata for the ML model.<br>
+    – Designed and developed the admin dashboard’s frontend using Next.js and Tailwind CSS for efficient user management.<br>
+    – Ensured system quality by creating detailed test plans and conducting manual testing of all components.<br><br>
+    <span class="text-yellow-400">Product Lead @ Rean&Play Studio</span><br>
+    Mar 2023 – Jul 2025<br>
+    <span class="text-cyan-400">Marketing and PR Officer</span> (Mar 2023 – Feb 2024)<br>
+    – Led pitching and presentation efforts at startup competitions, including winning 1st place at SMARTSPARK+ COHORT 1.<br>
+    – Acted as the public face of the studio, building credibility with judges, investors, and partners.<br>
+    – Designed and executed marketing campaigns, managed social media, and handled public relations.<br><br>
+    <span class="text-cyan-400">User Experience Designer</span> (Mar 2023 – Jul 2025)<br>
+    – Designed and implemented the UI/UX for LetterHunter, an adventure puzzle game teaching the Khmer alphabet.<br>
+    – Translated user research into wireframes, user flows, and high-fidelity designs.<br>
+    – Designed responsive front-end interfaces using Flutter to bring designs to life.<br>
   `,
   education: `
     <span class="text-green-400">Education</span><br>
-    <span class="text-yellow-400">Bachelor of Science in Software Engineering</span><br>
-    Kirirom Institute of Technology, Feb 2023 - Feb 2027
+    <span class="text-yellow-400">Bachelor of Engineering in Software Engineering</span><br>
+    Kirirom Institute of Technology, Feb 2023 – Feb 2027
   `,
   projects: [
     {
-      title: 'Autonomous Robot',
-      description: 'Designed an autonomous robot capable of following a user. This project involved hands-on work with microcontrollers and sensors, programming the robot\'s logic and movement capabilities for seamless autonomous operation.',
-      stack: 'Arduino, MIT App Inventor',
-      date: 'May 2024 - September 2024'
+      title: 'Digital Menu Web App',
+      description: 'Developed a dynamic menu management system using Angular, Node.js, Express, and MongoDB for a local restaurant. Implemented CRUD functionality for food items and categories, enabling real-time updates through a responsive admin dashboard. Ensured a mobile-first responsive layout for customers to browse the menu with optimized performance and user experience.',
+      stack: 'Angular, Node.js, Express, MongoDB',
+      date: ''
     },
     {
-      title: 'Vehicle Maintenance App',
-      description: 'Developed the backend infrastructure for an innovative AI-powered mobile application for predictive vehicle maintenance. I was responsible for building the core logic and services that power the app\'s AI features and data processing.',
-      stack: 'Flutter, Dart, Supabase, Google Gen AI SDK, Google APIs',
-      date: 'November 2024 - February 2025'
+      title: 'DSA Message Signing',
+      description: 'Created a simple tool that allows users to generate digital signature key pairs and encrypt messages using DSA (Digital Signature Algorithm). Developed the front end with React for intuitive interaction and connected it to a Python backend using Flask for cryptographic operations. Enabled secure message signing and verification with a focus on clarity and beginner usability.',
+      stack: 'React, Python, Flask',
+      date: ''
     },
     {
-      title: 'Restaurant Operations Platform',
-      description: 'As project leader, I led the development of the backend architecture for a comprehensive restaurant operations platform. My work involved designing and implementing scalable systems, robust APIs, and optimized database solutions to enhance operational efficiency.',
-      stack: 'Next.js, PHP, ShadCN/UI, Tailwind CSS, Framer Motion, MongoDB, Google Gen AI SDK',
-      date: 'March 2025 - June 2025'
+      title: 'Diabetes Prediction App',
+      description: 'Built a web-based health application using Gradio and a trained Random Forest classifier on the Pima Indians Diabetes dataset. Implemented an intuitive interface for users to input medical data and receive diabetes risk predictions with confidence scores. Enabled offline model training and persistence with Pickle and Scikit-learn for reproducibility and deployment.',
+      stack: 'Gradio, Python, Scikit-learn, Pickle',
+      date: ''
     },
     {
-      title: 'Recipe AI Drink',
-      description: 'Served as an AI Engineer, leveraging Google\'s Generative AI to create a dynamic web application that generates unique and personalized drink recipes. My role focused on integrating the AI model to provide a creative and interactive user experience.',
-      stack: 'Next.js, Tailwind CSS, Supabase, ShadCN, Google Gen AI SDK',
-      date: 'June 2025 - June 2025'
+      title: 'African Wildlife Classifier',
+      description: 'Developed an image classification app using PyTorch and Gradio to identify African wildlife species from user-uploaded images. Fine-tuned AlexNet to classify four species (Buffalo, Elephant, Rhino, Zebra) with softmax confidence output. Handled fallback loading of pretrained models and optimized the app for various environments including Hugging Face Spaces and Colab.',
+      stack: 'PyTorch, Gradio, AlexNet',
+      date: ''
     }
   ],
-  mlProjects: [
+  achievements: [
     {
-      title: 'Loan Approval Prediction',
-      description: 'Developed a machine learning model to predict loan approval outcomes by analyzing applicant data. This project involved data preprocessing, feature engineering, and model evaluation to achieve high accuracy and provide actionable insights for financial decision-making.',
-      stack: 'Python, Scikit-learn, Pandas, NumPy, Matplotlib'
+      title: 'SMARTSPARK+ Cohort 1 - Winner',
+      date: 'May 2023 – Sep 2023',
+      description: 'Participated in the three month long training; learning to effectively start, operate and advertise a start-up. Presented the winning pitch for Rean&Play Studio’s idea to develop engaging Khmer language learning games for children.'
     },
     {
-      title: 'Cambodia Wildfire Prediction',
-      description: 'Constructed a predictive model to forecast wildfire occurrences in Cambodia using meteorological and satellite data. My work included data analysis, feature selection, and implementing ML algorithms to support early warning systems and mitigation efforts.',
-      stack: 'Python, Scikit-learn, Pandas, NumPy, Jupyter Notebook, Gradio'
-    }
-  ],
-  personalProjects: [
+      title: 'UnipreneurSprint Batch 3 - Second Runner-up',
+      date: 'Jan 2024',
+      description: 'Participated in the three day long hackathon; learning to effectively identify problems and solutions and turning them into marketable products.'
+    },
     {
-      title: 'Dteam',
-      description: 'A comprehensive gaming platform inspired by Steam, featuring a modern web interface built with Angular and TypeScript. The platform includes user authentication, game library management, and social features, all powered by a robust Node.js backend with Express.js and MongoDB. Deployed using Docker containers with Nginx for production-ready performance.',
-      stack: 'Angular, TypeScript, Tailwind CSS, Font Awesome, Node.js, Express.js, MongoDB, Mongoose, JWT, Vite, Docker, Nginx',
+      title: 'Youth to Business Hackathon - Winner',
+      date: 'Mar 2024',
+      description: 'Developed and delivered the winning pitch to modernize a tailor shop, presenting my team’s idea for inventory management, digital advertising, and customer-focused loyalty and recycling programs.'
     }
   ],
   contact: `
     <span class="text-green-400">Contact Information</span><br>
-    <span class="text-yellow-400">Email:</span> <a href='mailto:darosouh@gmail.com' class='text-blue-400 hover:underline'>darosouh@gmail.com</a><br>
-    <span class="text-yellow-400">GitHub:</span> <a href='https://github.com/Sou-Daroh' class='text-blue-400 hover:underline' target='_blank'>github.com/Sou-Daroh</a><br>
-    <span class="text-yellow-400">LinkedIn:</span> <a href='https://www.linkedin.com/in/daroh-sou' class='text-blue-400 hover:underline' target='_blank'>linkedin.com/in/daroh-sou</a><br>
+    <span class="text-yellow-400">Phone:</span> +855 11355529<br>
+    <span class="text-yellow-400">Email:</span> <a href='mailto:vannputhikasuon@gmail.com' class='text-blue-400 hover:underline'>vannputhikasuon@gmail.com</a><br>
+    <span class="text-yellow-400">Location:</span> Phnom Penh, Cambodia<br>
   `,
   fastfetch: {
-    name: "daroh",
-    title: "Software Engineer",
+    name: "Suon Vannputhika",
+    title: "Software Engineering Student",
     os: "terminal",
     shell: "zsh",
     packages: "npm",
     editor: "VS Code",
     contact: {
-      email: "darosouh@gmail.com",
-      github: "Sou-Daroh",
-      linkedin: "Sou-Daroh",
+      email: "vannputhikasuon@gmail.com",
+      github: "",
+      linkedin: "",
     },
     art: `                                    
                  #*#                    
