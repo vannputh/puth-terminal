@@ -305,7 +305,18 @@ export const useTerminal = () => {
         return "Launching globe viewer... Type 'exit' to close, or use the close button.";
       },
       sudo: () => `<span class="text-red">Permission denied.</span> Nice try though! 😄`,
-      echo: (args) => args.join(" "),
+      echo: (args) => {
+
+        const escapeHtml = (str: string) => {
+          return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        };
+        return escapeHtml(args.join(" "));
+      },
       date: () => new Date().toString(),
       whoami: () => "daroh@terminal",
       clear: () => {
@@ -400,7 +411,9 @@ export const useTerminal = () => {
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+    const maxInputLength = 1000;
+    const newInput = e.target.value.slice(0, maxInputLength);
+    setInput(newInput);
   };
 
   const handleInputKeyDown = useCallback(
