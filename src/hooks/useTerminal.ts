@@ -53,10 +53,9 @@ interface PerformanceMemory {
 const getDeviceInfo = () => {
   const userAgent = navigator.userAgent;
   
-  // Get platform info using modern API or fallback
+  
   let platform = "Unknown";
   
-  // Try modern userAgentData API first
   if ('userAgentData' in navigator) {
     const userAgentData = (navigator as { userAgentData?: UserAgentData }).userAgentData;
     if (userAgentData && userAgentData.platform) {
@@ -64,7 +63,6 @@ const getDeviceInfo = () => {
     }
   }
   
-  // Fallback to parsing userAgent if modern API not available
   if (platform === "Unknown") {
     if (userAgent.includes("Windows")) {
       platform = "Windows";
@@ -81,43 +79,16 @@ const getDeviceInfo = () => {
     }
   }
   
-  // Detect OS with more detail
   let os = "Unknown OS";
   let kernel = "Unknown";
   let deviceType = "Desktop";
   
   if (userAgent.includes("Windows")) {
-    if (userAgent.includes("Windows NT 10.0")) {
-      // Both Windows 10 and 11 use NT 10.0, but we can't reliably distinguish them
-      // from browser User Agent strings, so we'll default to Windows 10
-      os = "Windows 10";
-      kernel = "NT 10.0";
-    } else if (userAgent.includes("Windows NT 6.3")) {
-      os = "Windows 8.1";
-      kernel = "NT 6.3";
-    } else if (userAgent.includes("Windows NT 6.2")) {
-      os = "Windows 8";
-      kernel = "NT 6.2";
-    } else if (userAgent.includes("Windows NT 6.1")) {
-      os = "Windows 7";
-      kernel = "NT 6.1";
-    } else if (userAgent.includes("Windows NT 6.0")) {
-      os = "Windows Vista";
-      kernel = "NT 6.0";
-    } else {
-      os = "Windows";
-      kernel = "NT";
-    }
+    os = "Windows";
+    kernel = "NT";
   } else if (userAgent.includes("Mac OS X")) {
-    const match = userAgent.match(/Mac OS X (\d+_\d+_?\d*)/);
-    if (match) {
-      const version = match[1].replace(/_/g, '.');
-      os = `macOS ${version}`;
-      kernel = `Darwin ${version}`;
-    } else {
-      os = "macOS";
-      kernel = "Darwin";
-    }
+    os = "macOS";
+    kernel = "Darwin";
   } else if (userAgent.includes("Linux")) {
     os = "Linux";
     kernel = "Linux";
@@ -126,83 +97,50 @@ const getDeviceInfo = () => {
     else if (userAgent.includes("CentOS")) os = "CentOS";
   } else if (userAgent.includes("Android")) {
     deviceType = "Mobile";
-    const match = userAgent.match(/Android (\d+\.?\d*)/);
-    if (match) {
-      os = `Android ${match[1]}`;
-      kernel = `Linux ${match[1]}`;
-    } else {
-      os = "Android";
-      kernel = "Linux";
-    }
+    os = "Android";
+    kernel = "Linux";
   } else if (userAgent.includes("iPhone") || userAgent.includes("iPad")) {
     deviceType = userAgent.includes("iPad") ? "Tablet" : "Mobile";
-    const match = userAgent.match(/OS (\d+_\d+_?\d*)/);
-    if (match) {
-      const version = match[1].replace(/_/g, '.');
-      os = `iOS ${version}`;
-      kernel = `XNU ${version}`;
-    } else {
-      os = "iOS";
-      kernel = "XNU";
-    }
+    os = "iOS";
+    kernel = "XNU";
   }
 
-  // Detect Browser with more detail
   let shell = "Unknown Browser";
   let terminal = "Web Browser";
   if (userAgent.includes("Chrome") && !userAgent.includes("Edg")) {
-    const match = userAgent.match(/Chrome\/(\d+\.\d+\.\d+\.\d+)/);
-    shell = match ? `Chrome ${match[1]}` : "Chrome";
+    shell = "Chrome";
     terminal = "Chromium Engine";
   } else if (userAgent.includes("Firefox")) {
-    const match = userAgent.match(/Firefox\/(\d+\.\d+)/);
-    shell = match ? `Firefox ${match[1]}` : "Firefox";
+    shell = "Firefox";
     terminal = "Gecko Engine";
   } else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
-    const match = userAgent.match(/Version\/(\d+\.\d+)/);
-    shell = match ? `Safari ${match[1]}` : "Safari";
+    shell = "Safari";
     terminal = "WebKit Engine";
   } else if (userAgent.includes("Edg")) {
-    const match = userAgent.match(/Edg\/(\d+\.\d+\.\d+\.\d+)/);
-    shell = match ? `Edge ${match[1]}` : "Edge";
+    shell = "Edge";
     terminal = "Chromium Engine";
   }
 
-  // Get more detailed screen info
   const resolution = `${screen.width}x${screen.height}`;
   const colorDepth = `${screen.colorDepth}-bit`;
   const pixelRatio = window.devicePixelRatio || 1;
   
-  // Get memory info (if available)
-  let memory = "Unknown";
-  let memoryUsed = "Unknown";
-  if ('memory' in performance) {
-    const memInfo = (performance as { memory?: PerformanceMemory }).memory;
-    if (memInfo && memInfo.totalJSHeapSize && memInfo.usedJSHeapSize) {
-      const totalMB = Math.round(memInfo.totalJSHeapSize / 1024 / 1024);
-      const usedMB = Math.round(memInfo.usedJSHeapSize / 1024 / 1024);
-      memory = `${totalMB} MiB`;
-      memoryUsed = `${usedMB} MiB / ${totalMB} MiB`;
-    }
-  }
+  let memory = "Available";
+  let memoryUsed = "Available";
 
-  // Get CPU cores
   const cores = navigator.hardwareConcurrency || "Unknown";
   const cpu = cores !== "Unknown" ? `${cores} cores` : "Unknown CPU";
 
-  // Get timezone and locale info
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const language = navigator.language;
   const languages = navigator.languages ? navigator.languages.join(', ') : language;
 
-  // Calculate uptime (session time)
   const uptime = Math.floor(performance.now() / 1000);
   const hours = Math.floor(uptime / 3600);
   const minutes = Math.floor((uptime % 3600) / 60);
   const seconds = uptime % 60;
   const uptimeStr = `${hours}h ${minutes}m ${seconds}s`;
 
-  // Detect GPU (basic)
   let gpu = "Unknown GPU";
   try {
     const canvas = document.createElement('canvas');
@@ -213,34 +151,17 @@ const getDeviceInfo = () => {
       if (debugInfo) {
         const renderer = webglContext.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
         if (renderer) {
-          // Clean up the GPU string to extract just the GPU name
-          let cleanGpu = renderer.toString();
           
-          // Remove ANGLE wrapper info
-          if (cleanGpu.includes('ANGLE (')) {
-            const match = cleanGpu.match(/ANGLE \([^,]+,\s*([^(]+)/);
-            if (match) {
-              cleanGpu = match[1].trim();
-            }
+          const rendererStr = renderer.toString();
+          if (rendererStr.includes('Intel') && rendererStr.includes('Graphics')) {
+            gpu = 'Intel Graphics [Integrated]';
+          } else if (rendererStr.includes('NVIDIA') || rendererStr.includes('RTX') || rendererStr.includes('GTX')) {
+            gpu = 'NVIDIA Graphics [Discrete]';
+          } else if (rendererStr.includes('AMD') || rendererStr.includes('Radeon')) {
+            gpu = 'AMD Graphics [Discrete]';
+          } else {
+            gpu = 'Graphics Card Available';
           }
-          
-          // Remove device ID and technical details
-          cleanGpu = cleanGpu.replace(/\s*\(0x[0-9A-Fa-f]+\).*$/, '');
-          cleanGpu = cleanGpu.replace(/\s*Direct3D.*$/, '');
-          cleanGpu = cleanGpu.replace(/\s*OpenGL.*$/, '');
-          cleanGpu = cleanGpu.replace(/\s*vs_\d+_\d+.*$/, '');
-          
-          // Add memory info if we can detect it (placeholder for now)
-          // Note: WebGL doesn't provide VRAM info, so we'll show a generic format
-          if (cleanGpu.includes('RTX') || cleanGpu.includes('GTX')) {
-            cleanGpu += ' [Discrete]';
-          } else if (cleanGpu.includes('Intel') && cleanGpu.includes('Graphics')) {
-            cleanGpu += ' [Integrated]';
-          } else if (cleanGpu.includes('AMD') || cleanGpu.includes('Radeon')) {
-            cleanGpu += ' [Discrete]';
-          }
-          
-          gpu = cleanGpu || "Unknown GPU";
         }
       }
     }
@@ -267,7 +188,7 @@ const getDeviceInfo = () => {
     language,
     languages,
     uptime: uptimeStr,
-    userAgent: userAgent.length > 100 ? userAgent.substring(0, 100) + "..." : userAgent
+    userAgent: "Browser"
   };
 };
 
@@ -279,7 +200,7 @@ export const useTerminal = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [showGlobe, setShowGlobe] = useState(false);
   const terminalRef = useRef<HTMLDivElement>(null);
-  const typingInterruptRef = useRef(false); // Add ref to track interruption
+  const typingInterruptRef = useRef(false);
 
   const allCommandNames = Object.keys(commands);
 
@@ -436,7 +357,7 @@ export const useTerminal = () => {
         setIsTyping(false);
       } else if (typeof output === "string") {
         setIsTyping(true);
-        typingInterruptRef.current = false; // Reset interrupt flag
+        typingInterruptRef.current = false;
         setHistory([...currentHistory, ""]);
 
         await new Promise((res) => setTimeout(res, 50));
@@ -445,7 +366,6 @@ export const useTerminal = () => {
         const typingDelay = 0;
 
         for (let i = 0; i < output.length; i++) {
-            // Check for interruption signal
             if (typingInterruptRef.current) {
                 setHistory(prevHistory => [...prevHistory, '']);
                 setIsTyping(false);
@@ -492,7 +412,7 @@ export const useTerminal = () => {
         e.preventDefault();
         e.stopPropagation();
         // Interrupt current typing or command
-        typingInterruptRef.current = true; // Set interrupt flag
+        typingInterruptRef.current = true; 
         setIsTyping(false);
         const interruptedInput = input ? input : "";
         const newHistory = [
@@ -598,7 +518,7 @@ export const useTerminal = () => {
 
     const typeMessage = async () => {
       setIsTyping(true);
-      typingInterruptRef.current = false; // Reset interrupt flag for welcome message
+      typingInterruptRef.current = false; 
       setHistory([...newHistory, ""]);
 
       await new Promise((res) => setTimeout(res, 50));
@@ -607,7 +527,7 @@ export const useTerminal = () => {
       const typingDelay = 0;
 
       for (let i = 0; i < welcomeMessage.length; i++) {
-        // Check for interruption signal
+       
         if (typingInterruptRef.current) {
           setHistory((prevHistory) => [...prevHistory, ""]);
           setIsTyping(false);
@@ -638,39 +558,10 @@ export const useTerminal = () => {
       setIsTyping(false);
     };
 
-    // Add global Ctrl+C listener
-    const handleGlobalKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey && (e.key === "c" || e.key === "C")) || 
-          (e.ctrlKey && e.keyCode === 67) ||
-          (e.metaKey && (e.key === "c" || e.key === "C"))) {
-        e.preventDefault();
-        e.stopPropagation();
-        // Only interrupt if we're in the terminal context
-        const isInTerminal = document.activeElement?.id === "terminal-input" || 
-                           document.activeElement?.closest('.terminal') ||
-                           document.querySelector('.terminal')?.contains(document.activeElement);
-        
-        if (isInTerminal) {
-          typingInterruptRef.current = true; // Set interrupt flag
-          setIsTyping(false);
-          const currentInput = (document.getElementById('terminal-input') as HTMLInputElement)?.value || "";
-          setHistory((prevHistory) => [
-            ...prevHistory,
-            `${promptLine1}<br>${promptLine2}<span class="text-green-400">${currentInput}</span><span class="text-red-400">^C</span>`,
-            ""
-          ]);
-          setInput("");
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleGlobalKeyDown);
     typeMessage();
 
     return () => {
-      document.removeEventListener('keydown', handleGlobalKeyDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
